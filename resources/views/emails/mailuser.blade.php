@@ -22,17 +22,8 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <!--<p>{$name}} age is {$age}}</p>-->
-            {{--<p>name is {{$obj->name}} , id is {{$obj->id}} , gender is {{$obj->gender}} </p> <br>
-            @if ($obj->name=='soso')
-                <p>yes i am Saba</p>
-            @else
-                <p>not  Saba</p>
-            @endif
-
-            @foreach ($data as $d)
-                <p>{{$d}}</p>
-            @endforeach--}}
+            {{$details['title']}}
         </div>
+        <p>{{$details['body']}}</p>
     </body>
 </html>

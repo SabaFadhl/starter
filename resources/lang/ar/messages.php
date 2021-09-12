@@ -15,6 +15,6 @@ return [
 
     "hello gus"=>"اهلا بكم ",
     "welcome"=>"اهلا",
-
+    "offer name required"=>"اسم العرض مطلوب",
 
 ];

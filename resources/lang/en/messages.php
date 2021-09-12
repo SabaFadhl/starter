@@ -14,4 +14,5 @@ return [
     */
     "hello gus"=>"HELLO GUS",
     "welcome"=>"WELCOME",
+    "offer name required"=>"offer name required",
 ];

@@ -39,4 +39,7 @@ Route::group(['prefix'=>'offers'],function(){
     // Route::get('store',[CrudController::class,'store']);
     Route::post('store',[CrudController::class,'store'])->name('offers.store');
     Route::get('create',[CrudController::class,'create']);
+    Route::get('all',[CrudController::class,'getOfferAll']);
+    Route::get('edit/{offer_id}',[CrudController::class,'editOffer']);
+    Route::post('update/{offer_id}',[CrudController::class,'updateOffer'])->name('offers.update');
 });

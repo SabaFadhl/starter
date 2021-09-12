@@ -65,7 +65,7 @@ class CrudController extends Controller
             'details'=>$request->details,
         ]);
         //  return 'تم اضافه العرض بنجاح ';
-        return redirect()->back()->with(['success' => 'تم اضافه العرض بنجاح ']);
+        return redirect()->back()->with(['succes s' => 'تم اضافه العرض بنجاح ']);
     }
     // protected function getMessages()
     //     {
@@ -85,5 +85,34 @@ class CrudController extends Controller
             //     'price' => 'required|numeric',
             //     'details' => 'required',
             // ];
+        }
+
+        public function getOfferAll()
+        {
+           $offers= Offer::select('id','name','price','details')->get();
+           return view('offers.all',compact('offers'));
+        }
+
+        public function editOffer($offer_id)
+        {
+           // Offer::findOrFail($offer_id);
+           $offer=Offer::find($offer_id); //search in given table id only
+           if(!$offer){
+               return redirect()->back();
+           }
+           $offer =Offer::select('id','name','price','details')->find($offer_id);
+           return view('offers.edit',compact('offer'));
+           //return $offer_id;
+        }
+
+        public function updateOffer(OfferRequest $request,$offer_id)
+        {
+            // chek if offer exists
+            $offer = Offer::find($offer_id);
+            if (!$offer)
+                return redirect()->back();
+            //update data
+            $offer->update($request->all());
+            return redirect()->back()->with(['success' => ' تم التحديث بنجاح ']);
         }
 }

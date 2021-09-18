@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OfferRequest;
 use App\Models\Offer;
+use App\Traits\TraitsOffer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CrudController extends Controller
 {
+    use TraitsOffer;
     /**
      * Create a new controller instance.
      *
@@ -49,7 +51,7 @@ class CrudController extends Controller
         //    return redirect()->back()->withErrors($validator)->withInputs($request->all());
         // }
 
-        //$file_name = $this->saveImage($request->photo, 'images/offers');
+        $file_name = $this->saveImage($request->file('photo'), 'images/offers');
 
         // $rules = $this->getRules();
         // $messages = $this->getMessages();
@@ -61,11 +63,12 @@ class CrudController extends Controller
         //insert
         Offer::create([
             'name'=> $request->name,
+            'photo'=>$file_name,
             'price'=>$request->price,
             'details'=>$request->details,
         ]);
         //  return 'تم اضافه العرض بنجاح ';
-        return redirect()->back()->with(['succes s' => 'تم اضافه العرض بنجاح ']);
+        return redirect()->back()->with(['success' => 'تم اضافه العرض بنجاح ']);
     }
     // protected function getMessages()
     //     {

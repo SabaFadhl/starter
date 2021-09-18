@@ -20,7 +20,6 @@
               @error('name')
                <small id="photo_error" class="form-text text-danger">{{$message}}</small>
               @enderror
-
             </div>
             <div class="form-group">
               <label>Offer price:</label>

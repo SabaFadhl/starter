@@ -11,9 +11,10 @@
             {{Session::get('success')}}
          </div>
          @endif
-        <form method='POST' action="{{route('offers.store')}}">
+        <form method='POST' action="{{route('offers.store')}}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
+            <div class="form-group" >
+            <input type="file" name='photo' class="form-control">
               <label >Offer name:</label>
               <input type="text" name='name' class="form-control" value="{{--old()->name--}}">
               @error('name')
